@@ -253,14 +253,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
     export DYNAMO_MODE=on
     FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
     ```
-    
 
-    
-2. In the pasted code, change the following line to match your Region (your Region is listed at the top right, next to your user name):
-    
-    ```bash
-    export AWS_DEFAULT_REGION=<INSERT REGION HERE>
-    ```
     
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/6498bfac-bdcf-4a63-9f5d-867faef04806)
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/11799db5-9b41-4046-938f-8068290e8284)
@@ -276,7 +269,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 In the user data code, replace the PHOTOS_BUCKET placeholder value with the name of your bucket.
 
 Example:
-
+```bash
 export PHOTOS_BUCKET=
     
 3. Choose **Launch instance**.
