@@ -203,29 +203,46 @@ To connect the application to a database, you first need to create one! In this 
 ==============================================================
 
  **Task5**
- **Creating the launch template**
+ **Creating EC2**
  
-**Creating the launch template**
+## Launching an EC2 instance that uses a role
 
-Now that you can access your application from a singular DNS name, you can scale the application horizontally. To scale horizontally, you need a launch template. In this task, you will create a launch template.
+In this task, you will launch an EC2 instance that hosts the employee directory application.
 
-1. Back in the console, if needed, search for and open **EC2**.
-2. In the navigation pane, under **Instances**, choose **Launch Templates**.
-3. Choose **Create launch template** and configure the following settings.
-    - **Launch template name**: `app-launch-template`
-    - **Template version description**: `A web server for the employee directory application`
-    - **Auto Scaling guidance**: *Provide guidance to help me set up a template that I can use with EC2 Auto Scaling*
-    - **Application and OS Images (Amazon Machine Image) - required**: *Currently in use*
-    - **Instance type**: *t2.micro*
-    - **Key pair name**: *app-key-pair*
-    - **Security groups**: *web-security-group*
-4. Expand the **Advanced details** section.
-5. For **IAM instance profile**, choose **S3DynamoDBFullAccessRole**.
-6. Scroll to **User data** and paste the following code:
+1. If needed, log in to the AWS Management Console as your *Admin* user.
+2. In the **Services** search bar, search for **EC2**, and open the service by choosing **EC2**.
+3. In the navigation pane, under **Instances** choose **Instances**.
+4. Choose **Launch instances**.
+5. For **Name** use `employee-directory-app`.
+6. Under **Application and OS Images (Amazon Machine Image)**, choose the default **Amazon Linux 2023**.
+7. 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191ca721-e08f-4a65-b4c6-6a8fd47b8eb2/Untitled.png)
+
+1. Under **Instance type**, select **t2.micro**.
+2. Under **Key pair (login)**, choose **Create a new key pair**.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9b0e3af-9f96-47f1-8721-f4c7bea1f6b3/Untitled.png)
+
+1. For **Key pair name**, paste `app-key-pair`. Choose **Create key pair**. The required **.pem** file should automatically download for you.
+2. Under **Network settings** and **Edit**: Keep the default VPC selection, which should have *(default)* after the network name
+    - **Subnet**: Choose the first subnet in the dropdown list
+    - **Auto-assign Public IP**: *Enable*
+3. Under **Firewall (security groups)** choose **Create security group** use `app-sg` for the **Security group name** and **Description**.
+4. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
+5. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3797788c-b1f0-4a54-a228-64db081bf2ed/Untitled.png)
+
+1. Expand **Advanced details** and under choose **S3DynamoDBFullAccessRole**.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bdf9fcb4-217d-4afc-b176-c03c94256f01/Untitled.png)
+
+1. In the **User data** box, paste the following code:
     
     ```bash
     #!/bin/bash -ex
-    wget https://github.com/SawsanSalahEldin/AWS-Projects/blob/main/FlaskApp.zip
+    wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
     unzip FlaskApp.zip
     cd FlaskApp/
     yum -y install python3-pip
@@ -237,24 +254,34 @@ Now that you can access your application from a singular DNS name, you can scale
     FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
     ```
     
-7. In the user data code, replace the `PHOTOS_BUCKET` placeholder value with the name of your bucket.
-    
-    Example:
-    
-    ```bash
-    export PHOTOS_BUCKET=employee-photo-bucket-s-37
-    ```
 
     
-8. Replace the `AWS_DEFAULT_REGION` placeholder value with your Region (the Region is listed at the top right, next to your user name).
+2. In the pasted code, change the following line to match your Region (your Region is listed at the top right, next to your user name):
+    
+    ```bash
+    export AWS_DEFAULT_REGION=<INSERT REGION HERE>
+    ```
+    
+![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/6498bfac-bdcf-4a63-9f5d-867faef04806)
+![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/11799db5-9b41-4046-938f-8068290e8284)
+
+
     
     Example:
     
-    This example uses US West (Oregon) (*us-west-2*) as the Region.
+    The following example uses the US West (Oregon) Region, or *us-west-2*.
     
     ```bash
     export AWS_DEFAULT_REGION=us-west-2
-    ```
+In the user data code, replace the PHOTOS_BUCKET placeholder value with the name of your bucket.
+
+Example:
+
+export PHOTOS_BUCKET=
     
-9. Choose **Create launch template**.
-10. Choose **View Launch templates**.
+3. Choose **Launch instance**.
+4. Choose **View all instances**.
+    
+    The instance should now be listed under **Instances**.
+    
+5. Wait for the **Instance state** to change to *Running* and the **Status check** to change to *2/2 checks passed*.
