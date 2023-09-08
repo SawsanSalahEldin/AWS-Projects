@@ -16,4 +16,5 @@ A basic CRUD app that serves as an Employee Directory, allowing users to create,
 
 Login to an AWS account using a user with admin privileges and ensure your region is set to us-east-1 N. Virginia
 
-1-** Setting up an IAM role for an EC2 instance **
+1- **Setting up an IAM role for an EC2 instance**
+
