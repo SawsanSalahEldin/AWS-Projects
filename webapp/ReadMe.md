@@ -76,5 +76,11 @@ In this task, you will create the four subnets for your VPC. You will configure 
     - **Subnet name**: `Public Subnet 2`
     - **Availability Zone**: Choose the second Availability Zone
         - Example: If you are in US West (Oregon), you would choose *us-west-2b*
+        - **IPv4 CIDR block**: 10.1.2.0/24
           
-
+6. After the subnets are created, select the check box for **Public Subnet 1**.
+7. Choose **Actions** and then choose **Edit subnet settings**.
+8. For **Auto-assign IP settings**, select **Enable auto-assign public IPv4 address** and then choose **Save**.
+9. Clear the check box for **Public Subnet 1** and select the check box for **Public Subnet 2**.
+10. Again, choose **Actions** and then **Edit subnet settings**.11
+11. . For **Auto-assign IP settings**, select **Enable auto-assign public IPv4 address** and save the settings.
