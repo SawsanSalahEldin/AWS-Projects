@@ -132,16 +132,7 @@ In this task, you will create an S3 bucket.
 1. If needed, log in to the AWS Management Console with your *Admin* user.
 2. In the search box, enter `S3` and open the Amazon S3 console by choosing **S3**.
 3. Choose **Create bucket**.
-4. For **Bucket name**, enter `employee-photo-bucket-<your initials>-<unique number>`.
-    
-    Example:
-    
-    ```bash
-    employee-photo-bucket-al-907
-    ```
-    
-    !https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/images/clipboard.svg
-    
+4. For **Bucket name**, enter `employee-photo-bucket-<your initials>-<unique number>`.    
 5. Choose **Create bucket**.
 **Uploading a photo**
 
@@ -195,3 +186,21 @@ In this task, you will update the bucket policy. The updated configuration allow
 ==============================================================
 
  **Task4**
+
+ 
+ 
+ **Creating the DynamoDB table**
+
+To connect the application to a database, you first need to create one! In this task, you will create a database by using DynamoDB.
+
+1. Return to the console, and search for and open **DynamoDB**.
+2. In the navigation pane, choose **Tables**.
+3. Choose **Create table** and configure the following settings.
+    - **Table name**: `Employees`
+    - **Partition key**: `id`
+4. Choose **Create table**.
+==============================================================
+
+ **Task5**
+ 
+
