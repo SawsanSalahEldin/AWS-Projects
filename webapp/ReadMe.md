@@ -35,7 +35,7 @@ In this task, you will log in as the *Admin* user and create an IAM role. The 
 9. For **Role name**, paste `S3DynamoDBFullAccessRole` and choose **Create role**.
    ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/547d3c67-f3af-4c20-bdae-e0295e4816ef)
 
-   ==========================================================================================================================================================
+   ================================================================
 
  **Task2**
  
@@ -114,7 +114,8 @@ First, you will create the public route table.
 11. Select the two public subnets that you created (**Public Subnet 1** and **Public Subnet 2**) and choose **Save associations**.
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/af2148ff-e746-4696-a607-0f8ee33be646)
 
-==========================================================================================================================================================
+==============================================================
+
  **Task3**
 
 # Creating an S3 Bucket and Modifying the EC2 Instance
@@ -190,4 +191,6 @@ In this task, you will update the bucket policy. The updated configuration allow
 
 
 
+==============================================================
 
+ **Task4**
