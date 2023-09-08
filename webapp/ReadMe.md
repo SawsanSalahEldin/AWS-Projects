@@ -205,50 +205,57 @@ To connect the application to a database, you first need to create one! In this 
  **Task5**
  **Creating the launch template**
  
+## Creating the launch template
+
 Now that you can access your application from a singular DNS name, you can scale the application horizontally. To scale horizontally, you need a launch template. In this task, you will create a launch template.
 
-Back in the console, if needed, search for and open EC2.
-
-In the navigation pane, under Instances, choose Launch Templates.
-
-Choose Create launch template and configure the following settings.
-Launch template name: app-launch-template
-Template version description: A web server for the employee directory application
-Auto Scaling guidance: Provide guidance to help me set up a template that I can use with EC2 Auto Scaling
-Application and OS Images (Amazon Machine Image) - required: Currently in use
-Instance type: t2.micro
-Key pair name: app-key-pair
-Security groups: web-security-group
-Expand the Advanced details section.
-
-For IAM instance profile, choose S3DynamoDBFullAccessRole.
-
-Scroll to User data and paste the following code:
-
-#!/bin/bash -ex
-wget https://github.com/SawsanSalahEldin/AWS-Projects/blob/main/FlaskApp.zip
+1. Back in the console, if needed, search for and open **EC2**.
+2. In the navigation pane, under **Instances**, choose **Launch Templates**.
+3. Choose **Create launch template** and configure the following settings.
+    - **Launch template name**: `app-launch-template`
+    - **Template version description**: `A web server for the employee directory application`
+    - **Auto Scaling guidance**: *Provide guidance to help me set up a template that I can use with EC2 Auto Scaling*
+    - **Application and OS Images (Amazon Machine Image) - required**: *Currently in use*
+    - **Instance type**: *t2.micro*
+    - **Key pair name**: *app-key-pair*
+    - **Security groups**: *web-security-group*
+4. Expand the **Advanced details** section.
+5. For **IAM instance profile**, choose **S3DynamoDBFullAccessRole**.
+6. Scroll to **User data** and paste the following code:
+    
+    ```bash
+    #!/bin/bash -ex
+    wget https://github.com/SawsanSalahEldin/AWS-Projects/blob/main/FlaskApp.zip
 unzip FlaskApp.zip
-cd FlaskApp/
-yum -y install python3-pip
-pip install -r requirements.txt
-yum -y install stress
-export PHOTOS_BUCKET==${SUB_PHOTOS_BUCKET}
-export AWS_DEFAULT_REGION=<INSERT REGION HERE>
-export DYNAMO_MODE=on
-FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
-In the user data code, replace the PHOTOS_BUCKET placeholder value with the name of your bucket.
+    unzip FlaskApp.zip
+    cd FlaskApp/
+    yum -y install python3-pip
+    pip install -r requirements.txt
+    yum -y install stress
+    export PHOTOS_BUCKET=${SUB_PHOTOS_BUCKET}
+    export AWS_DEFAULT_REGION=<INSERT REGION HERE>
+    export DYNAMO_MODE=on
+    FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
+    ```
+    
+7. In the user data code, replace the `PHOTOS_BUCKET` placeholder value with the name of your bucket.
+    
+    Example:
+    
+    ```bash
+    export PHOTOS_BUCKET=employee-photo-bucket-s-37
+    ```
 
-Example:
-
-export PHOTOS_BUCKET=employee-photo-bucket-s-37
-
-Replace the AWS_DEFAULT_REGION placeholder value with your Region (the Region is listed at the top right, next to your user name).
-
-
-export AWS_DEFAULT_REGION=us-west-2
-
-Choose Create launch template.
-
-Choose View Launch templates.
- 
-
+    
+8. Replace the `AWS_DEFAULT_REGION` placeholder value with your Region (the Region is listed at the top right, next to your user name).
+    
+    Example:
+    
+    This example uses US West (Oregon) (*us-west-2*) as the Region.
+    
+    ```bash
+    export AWS_DEFAULT_REGION=us-west-2
+    ```
+    
+9. Choose **Create launch template**.
+10. Choose **View Launch templates**.
