@@ -247,9 +247,9 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/11799db5-9b41-4046-938f-8068290e8284)
 
 
-3. Choose **Launch instance**.
-4. Choose **View all instances**.
+15. Choose **Launch instance**.
+16. Choose **View all instances**.
     
     The instance should now be listed under **Instances**.
     
-5. Wait for the **Instance state** to change to *Running* and the **Status check** to change to *2/2 checks passed*.
+17. Wait for the **Instance state** to change to *Running* and the **Status check** to change to *2/2 checks passed*.
