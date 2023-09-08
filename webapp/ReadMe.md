@@ -205,7 +205,7 @@ To connect the application to a database, you first need to create one! In this 
  **Task5**
  **Creating the launch template**
  
-## Creating the launch template
+**Creating the launch template**
 
 Now that you can access your application from a singular DNS name, you can scale the application horizontally. To scale horizontally, you need a launch template. In this task, you will create a launch template.
 
