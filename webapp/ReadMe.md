@@ -31,8 +31,7 @@ In this task, you will log in as the *Admin* user and create an IAM role. The 
 7. In the filter box, search for `amazondynamodb`, and select **AmazonDynamoDBFullAccess**.
 8. Choose **Next**.
 9. For **Role name**, paste `S3DynamoDBFullAccessRole` and choose **Create role**.
-10. 
+   ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/547d3c67-f3af-4c20-bdae-e0295e4816ef)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67e2dcbd-a652-4d28-8e83-4e04ce18c5ec/Untitled.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/39138a32-ebde-46ba-82e7-e8340a9faad7/Untitled.png)
+
