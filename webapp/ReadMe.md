@@ -118,7 +118,8 @@ First, you will create the public route table.
 
  **Task3**
 
-# Creating an S3 Bucket and Modifying the EC2 Instance
+
+**Creating an S3 Bucket and Modifying the EC2 Instance**
 
 For this scenario, you create the S3 bucket where the employee photos will be stored.
 
@@ -142,8 +143,8 @@ In this task, you will create an S3 bucket.
     !https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/images/clipboard.svg
     
 5. Choose **Create bucket**.
+**Uploading a photo**
 
-## Task 2: Uploading a photo
 
 In this task, you will upload an object (a photo) to the S3 bucket.
 
