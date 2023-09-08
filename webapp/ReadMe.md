@@ -33,5 +33,43 @@ In this task, you will log in as the *Admin* user and create an IAM role. The 
 9. For **Role name**, paste `S3DynamoDBFullAccessRole` and choose **Create role**.
    ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/547d3c67-f3af-4c20-bdae-e0295e4816ef)
 
+2- **Setting up a VPC**
+In this scenario, you create the underlying network infrastructure where the EC2 instance that hosts the employee directory will live.
 
+ you set up a new virtual private cloud (VPC). This new VPC will have twosubnets (two public subnets  and two route tables ( public route table) 
+In this task, you will create a new VPC.
+
+1. If needed, log in to the AWS Management Console as your *Admin* user.
+2. In the **Services** search box, enter `VPC` and open the VPC console by choosing **VPC** from the list.
+3. In the navigation pane, under **Virtual private cloud**, choose **Your VPCs**.
+4. Choose **Create VPC**.
+5. Configure these settings:
+    - **Name tag**: `app-vpc`
+    - **IPv4 CIDR block**: `10.1.0.0/16`
+6. Choose **Create VPC**.
+ ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/ce636e9a-61e4-496e-8468-11240eaf71e3)
+1. In the navigation pane, under **Virtual private cloud**, choose **Internet gateways**
+2. Choose **Create internet gateway**.
+3. For **Name tag**, paste `app-igw` and choose **Create internet gateway**.
+4. In the details page for the internet gateway, choose **Actions** and then choose **Attach to VPC**.
+5. For **Available VPCs**, choose `app-vpc` and then choose **Attach internet gateway**.
+
+3- **Creating subnets**
+
+In this task, you will create the four subnets for your VPC. You will configure the two public subnets first, and then configure the two private subnets.
+
+1. From the navigation pane, choose **Subnets**.
+2. Choose **Create subnet**.
+3. For the first public subnet, configure these settings:
+    - **VPC ID**: *app-vpc*
+    - **Subnet name**:`Public Subnet 1`
+    - **Availability Zone**: Choose the first Availability Zone
+        - Example: If you are in US West (Oregon), you would choose *us-west-2a*
+    - **IPv4 CIDR block**: `10.1.1.0/24`
+4. Choose **Add new subnet**.
+5. For the second public subnet, configure these settings:
+    - **Subnet name**: `Public Subnet 2`
+    - **Availability Zone**: Choose the second Availability Zone
+        - Example: If you are in US West (Oregon), you would choose *us-west-2b*
+          
 
