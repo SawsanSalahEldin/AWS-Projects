@@ -226,7 +226,6 @@ Now that you can access your application from a singular DNS name, you can scale
     ```bash
     #!/bin/bash -ex
     wget https://github.com/SawsanSalahEldin/AWS-Projects/blob/main/FlaskApp.zip
-unzip FlaskApp.zip
     unzip FlaskApp.zip
     cd FlaskApp/
     yum -y install python3-pip
