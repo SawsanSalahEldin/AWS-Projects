@@ -11,3 +11,4 @@ A basic CRUD app that serves as an Employee Directory, allowing users to create,
 - **Delete**: Users can remove employee records from the directory, permanently deleting their information.
 
 
+![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/4a64659b-ec8f-420d-b453-a11ba5b79af9)
