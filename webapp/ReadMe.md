@@ -391,7 +391,6 @@ Now that you can access your application from a singular DNS name, you can scale
     FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
     ```
     
-    !https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/images/clipboard.svg
     
 7. In the user data code, replace the `PHOTOS_BUCKET` placeholder value with the name of your bucket.
     
@@ -401,7 +400,6 @@ Now that you can access your application from a singular DNS name, you can scale
     export PHOTOS_BUCKET=employee-photo-bucket-al-907
     ```
     
-    !https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/images/clipboard.svg
     
 8. Replace the `AWS_DEFAULT_REGION` placeholder value with your Region (the Region is listed at the top right, next to your user name).
     
