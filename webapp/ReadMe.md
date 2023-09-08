@@ -326,6 +326,7 @@ In this task, you will create the Application Load Balancer.
 9. Close the security group browser window or return to the **Load balancers** window.
 10. For **Security groups**, add the new **load-balancer-sg** group. **Note:** To see the new security group, you might need to refresh the **Security groups** list.
 11. In **Listeners and routing**, choose **Create target group**.
+12. 
     ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/4d1c7f33-834c-4b10-8de2-d90349b44334)
 
     ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/85145b41-520e-4b1e-8370-d8af328d5c11)
@@ -414,7 +415,7 @@ Now that you can access your application from a singular DNS name, you can scale
     
 9. Choose **Create launch template**.
 10. Choose **View Launch templates**.
-
+=======================================
 **Creating the Auto Scaling group**
 
 In this task, you will create the Auto Scaling group.
@@ -456,7 +457,7 @@ In this task, you will create the Auto Scaling group.
 
 A web browser window should open with a *Subscription confirmed!* message.
 
-## Task 5: Testing the application
+**Testing the application**
 
 In this task, you will stress-test the application and confirm that it scales.
 
