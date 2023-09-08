@@ -49,6 +49,8 @@ In this task, you will create a new VPC.
 
 
  ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/ce636e9a-61e4-496e-8468-11240eaf71e3)
+
+ 
   **Creating Internet gateways**
 
 1. In the navigation pane, under **Virtual private cloud**, choose **Internet gateways**
