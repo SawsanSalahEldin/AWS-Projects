@@ -214,26 +214,19 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 3. In the navigation pane, under **Instances** choose **Instances**.
 4. Choose **Launch instances**.
 5. For **Name** use `employee-directory-app`.
-6. Under **Application and OS Images (Amazon Machine Image)**, choose the default **Amazon Linux 2023**.
-7. 
+6. Under **Application and OS Images (Amazon Machine Image)**, choose the default **Amazon Linux 2023**
+7. Under **Instance type**, select **t2.micro**.
+8. Under **Key pair (login)**, choose **Create a new key pair**.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/191ca721-e08f-4a65-b4c6-6a8fd47b8eb2/Untitled.png)
-
-1. Under **Instance type**, select **t2.micro**.
-2. Under **Key pair (login)**, choose **Create a new key pair**.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9b0e3af-9f96-47f1-8721-f4c7bea1f6b3/Untitled.png)
-
-1. For **Key pair name**, paste `app-key-pair`. Choose **Create key pair**. The required **.pem** file should automatically download for you.
-2. Under **Network settings** and **Edit**: Keep the default VPC selection, which should have *(default)* after the network name
+9. For **Key pair name**, paste `app-key-pair`. Choose **Create key pair**. The required **.pem** file should automatically download for you.
+10. Under **Network settings** and **Edit**: Keep the default VPC selection, which should have *(default)* after the network name
     - **Subnet**: Choose the first subnet in the dropdown list
-    - **Auto-assign Public IP**: *Enable*
-3. Under **Firewall (security groups)** choose **Create security group** use `app-sg` for the **Security group name** and **Description**.
-4. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
-5. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**
+    - **Auto-assign Public IP**: *Enable*11. Under **Firewall (security groups)** choose **Create security group** use `app-sg` for the **Security group name** and **Description**.
+11. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
+12. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**
 
-6. Expand **Advanced details** and under choose **S3DynamoDBFullAccessRole**.
-8. In the **User data** box, paste the following code:
+13. Expand **Advanced details** and under choose **S3DynamoDBFullAccessRole**.
+14. In the **User data** box, paste the following code:
     
     ```bash
     #!/bin/bash -ex
