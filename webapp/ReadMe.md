@@ -230,7 +230,7 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
     
     ```bash
     #!/bin/bash -ex
-    wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
+    wget https://github.com/SawsanSalahEldin/AWS-Projects/blob/main/FlaskApp.zip
     unzip FlaskApp.zip
     cd FlaskApp/
     yum -y install python3-pip
