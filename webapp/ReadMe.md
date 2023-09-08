@@ -230,15 +230,10 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
     - **Auto-assign Public IP**: *Enable*
 3. Under **Firewall (security groups)** choose **Create security group** use `app-sg` for the **Security group name** and **Description**.
 4. Under **Inbound security groups rules** choose **Remove** above the **ssh** rule.
-5. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**.
+5. Choose **Add security group rule**. For **Type** choose **HTTP**. Under **Source type** choose **Anywhere**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3797788c-b1f0-4a54-a228-64db081bf2ed/Untitled.png)
-
-1. Expand **Advanced details** and under choose **S3DynamoDBFullAccessRole**.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bdf9fcb4-217d-4afc-b176-c03c94256f01/Untitled.png)
-
-1. In the **User data** box, paste the following code:
+6. Expand **Advanced details** and under choose **S3DynamoDBFullAccessRole**.
+8. In the **User data** box, paste the following code:
     
     ```bash
     #!/bin/bash -ex
