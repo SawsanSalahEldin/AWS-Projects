@@ -16,6 +16,8 @@ A basic CRUD app that serves as an Employee Directory, allowing users to create,
 
 Login to an AWS account using a user with admin privileges and ensure your region is set to us-east-1 N. Virginia
 
+**Task1**
+
 **Setting up an IAM role for an EC2 instance**
 
 In this task, you will log in as the *Admin* user and create an IAM role. The role allows Amazon Elastic Compute Cloud (Amazon EC2) to access both Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB. You will later assign this role to an EC2 instance that hosts the employee directory application.
@@ -33,6 +35,10 @@ In this task, you will log in as the *Admin* user and create an IAM role. The 
 9. For **Role name**, paste `S3DynamoDBFullAccessRole` and choose **Create role**.
    ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/547d3c67-f3af-4c20-bdae-e0295e4816ef)
 
+   ==========================================================================================================================================================
+
+ **Task2**
+ 
  **Setting up a VPC**
 In this scenario, you create the underlying network infrastructure where the EC2 instance that hosts the employee directory will live.
 
@@ -108,13 +114,16 @@ First, you will create the public route table.
 11. Select the two public subnets that you created (**Public Subnet 1** and **Public Subnet 2**) and choose **Save associations**.
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/af2148ff-e746-4696-a607-0f8ee33be646)
 
+==========================================================================================================================================================
+ **Task3**
+
 # Creating an S3 Bucket and Modifying the EC2 Instance
 
 For this scenario, you create the S3 bucket where the employee photos will be stored.
 
 In this exercise, you create the S3 bucket, upload an object to it, and modify the bucket policy. You also launch an EC2 instance with updated user data so that the application uses the S3 bucket. Finally, you stop the EC2 instance to prevent future costs.
 
-## Task 1: Creating an S3 bucket
+ **Creating an S3 bucket**
 
 In this task, you will create an S3 bucket.
 
