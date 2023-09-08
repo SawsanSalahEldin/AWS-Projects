@@ -16,7 +16,7 @@ A basic CRUD app that serves as an Employee Directory, allowing users to create,
 
 Login to an AWS account using a user with admin privileges and ensure your region is set to us-east-1 N. Virginia
 
-1- **Setting up an IAM role for an EC2 instance**
+**Setting up an IAM role for an EC2 instance**
 
 In this task, you will log in as the *Admin* user and create an IAM role. The role allows Amazon Elastic Compute Cloud (Amazon EC2) to access both Amazon Simple Storage Service (Amazon S3) and Amazon DynamoDB. You will later assign this role to an EC2 instance that hosts the employee directory application.
 
@@ -33,7 +33,7 @@ In this task, you will log in as the *Admin* user and create an IAM role. The 
 9. For **Role name**, paste `S3DynamoDBFullAccessRole` and choose **Create role**.
    ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/547d3c67-f3af-4c20-bdae-e0295e4816ef)
 
-2- **Setting up a VPC**
+ **Setting up a VPC**
 In this scenario, you create the underlying network infrastructure where the EC2 instance that hosts the employee directory will live.
 
  you set up a new virtual private cloud (VPC). This new VPC will have twosubnets (two public subnets  and two route tables ( public route table) 
@@ -46,15 +46,18 @@ In this task, you will create a new VPC.
 5. Configure these settings:
     - **Name tag**: `app-vpc`
     - **IPv4 CIDR block**: `10.1.0.0/16`
-6. Choose **Create VPC**.
+
+
  ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/ce636e9a-61e4-496e-8468-11240eaf71e3)
+  **Creating Internet gateways**
+
 1. In the navigation pane, under **Virtual private cloud**, choose **Internet gateways**
 2. Choose **Create internet gateway**.
 3. For **Name tag**, paste `app-igw` and choose **Create internet gateway**.
 4. In the details page for the internet gateway, choose **Actions** and then choose **Attach to VPC**.
 5. For **Available VPCs**, choose `app-vpc` and then choose **Attach internet gateway**.
 
-3- **Creating subnets**
+ **Creating subnets**
 
 In this task, you will create the four subnets for your VPC. You will configure the two public subnets first, and then configure the two private subnets.
 
