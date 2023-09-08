@@ -259,19 +259,6 @@ In this task, you will launch an EC2 instance that hosts the employee directory 
 ![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/11799db5-9b41-4046-938f-8068290e8284)
 
 
-    
-    Example:
-    
-    The following example uses the US West (Oregon) Region, or *us-west-2*.
-    
-    ```bash
-    export AWS_DEFAULT_REGION=us-west-2
-In the user data code, replace the PHOTOS_BUCKET placeholder value with the name of your bucket.
-
-Example:
-```bash
-export PHOTOS_BUCKET=
-    
 3. Choose **Launch instance**.
 4. Choose **View all instances**.
     
