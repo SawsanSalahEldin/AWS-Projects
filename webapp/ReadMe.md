@@ -84,3 +84,101 @@ In this task, you will create the four subnets for your VPC. You will configure 
 9. Clear the check box for **Public Subnet 1** and select the check box for **Public Subnet 2**.
 10. Again, choose **Actions** and then **Edit subnet settings**.11
 11. . For **Auto-assign IP settings**, select **Enable auto-assign public IPv4 address** and save the settings.
+
+**Creating route tables**
+
+In this task, you will create the route tables for your VPC.
+
+First, you will create the public route table.
+
+1. In the navigation pane, choose **Route Tables**.
+2. Choose **Create route table**.
+3. For the route table, configure these settings:
+    - **Name**: `app-routetable-public`
+    - **VPC**: *app-vpc*
+4. Choose **Create route table**.
+5. If needed, open the route table details pane by choosing **app-routetable-public** from the list
+6. 1. Choose the **Routes** tab and choose **Edit routes**.
+7. Choose **Add route** and configure these settings:
+    - **Destination**: `0.0.0.0/0`
+    - **Target**: *Internet Gateway*, then choose *app-igw* (which you set up in the VPC task)
+8. Choose **Save changes**.
+9. Choose the **Subnet associations** tab.
+10. Scroll to **Subnets without explicit associations** and choose **Edit subnet associations**.
+11. Select the two public subnets that you created (**Public Subnet 1** and **Public Subnet 2**) and choose **Save associations**.
+![image](https://github.com/SawsanSalahEldin/AWS-Projects/assets/108637290/af2148ff-e746-4696-a607-0f8ee33be646)
+
+# Creating an S3 Bucket and Modifying the EC2 Instance
+
+For this scenario, you create the S3 bucket where the employee photos will be stored.
+
+In this exercise, you create the S3 bucket, upload an object to it, and modify the bucket policy. You also launch an EC2 instance with updated user data so that the application uses the S3 bucket. Finally, you stop the EC2 instance to prevent future costs.
+
+## Task 1: Creating an S3 bucket
+
+In this task, you will create an S3 bucket.
+
+1. If needed, log in to the AWS Management Console with your *Admin* user.
+2. In the search box, enter `S3` and open the Amazon S3 console by choosing **S3**.
+3. Choose **Create bucket**.
+4. For **Bucket name**, enter `employee-photo-bucket-<your initials>-<unique number>`.
+    
+    Example:
+    
+    ```bash
+    employee-photo-bucket-al-907
+    ```
+    
+    !https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/images/clipboard.svg
+    
+5. Choose **Create bucket**.
+
+## Task 2: Uploading a photo
+
+In this task, you will upload an object (a photo) to the S3 bucket.
+
+1. Open the details of your newly created bucket by choosing the bucket name.
+2. Choose **Upload**.
+3. Choose **Add files**.
+4. Choose a photo of your choice from your computer and choose **Open**.
+5. Choose **Upload.**
+    
+    At the top, you should see *Upload succeeded* in green.
+    
+6. Choose **Close**.
+
+ **Modifying the S3 bucket policy**
+
+In this task, you will update the bucket policy. The updated configuration allows the IAM role that you created previously to access the bucket.
+
+1. Choose the **Permissions** tab.
+2. Scroll down to **Bucket policy** and choose **Edit**.
+3. In the box, paste the following policy:
+    
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowS3ReadAccess",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": "arn:aws:iam::<INSERT-ACCOUNT-NUMBER>:role/S3DynamoDBFullAccessRole"
+                },
+                "Action": "s3:*",
+                "Resource": [
+                    "arn:aws:s3:::<INSERT-BUCKET-NAME>",
+                    "arn:aws:s3:::<INSERT-BUCKET-NAME>/*"
+                ]
+            }
+        ]
+    
+    ```
+    
+4. Replace the `<INSERT-ACCOUNT-NUMBER>` placeholder with your account number.
+5. Replace the `<INSERT-BUCKET-NAME>` placeholder with your bucket name.     
+6. Choose **Save changes**.
+
+
+
+
